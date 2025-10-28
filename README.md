@@ -1,9 +1,9 @@
 # Nettingale Benchmark
 
-![WordPress Plugin Version](https://img.shields.io/badge/version-0.99-blue.svg)
+![WordPress Plugin Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![WordPress Compatibility](https://img.shields.io/badge/wordpress-5.8%2B-brightgreen.svg)
 ![PHP Version](https://img.shields.io/badge/php-7.4%2B-purple.svg)
-![License](https://img.shields.io/badge/license-GPLv2%2B-red.svg)
+![License](https://img.shields.io/badge/license-GPLv3%2B-red.svg)
 ![Privacy](https://img.shields.io/badge/privacy-100%25%20local-success.svg)
 
 **WordPress performance benchmarking plugin that generates reproducible test datasets. 100% local, zero data collection.**
@@ -303,15 +303,15 @@ See [PRIVACY.md](PRIVACY.md) for complete details.
 
 ## License
 
-**GNU General Public License v2 or later**
+**GNU General Public License v3 or later**
 
 ```
 Nettingale Benchmark - WordPress Performance Benchmarking Plugin
-Copyright (C) 2024 Nettingale
+Copyright (C) 2024-2025 Nettingale
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
+the Free Software Foundation; either version 3 of the License, or
 (at your option) any later version.
 ```
 

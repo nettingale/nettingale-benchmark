@@ -115,8 +115,8 @@ jobs:
       - name: Create tag and release
         if: steps.check-context.outputs.is_tag == 'false' && steps.check-tag.outputs.exists == 'false'
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
           git tag -a "${{ steps.get-version.outputs.tag }}" -m "Release ${{ steps.get-version.outputs.version }}"
           git push origin "${{ steps.get-version.outputs.tag }}"
 

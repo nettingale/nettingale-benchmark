@@ -4,9 +4,9 @@ Tags: benchmark, performance, testing, seed data, development
 Requires at least: 5.8
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 0.99
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 1.0.0
+License: GPLv3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 WordPress performance benchmarking and testing toolkit for generating reproducible benchmark datasets. 100% local, zero data collection.
 
@@ -185,6 +185,14 @@ The plugin creates one table: `wp_nettingale_benchmark_runs` for benchmark track
 7. Background processing with auto-reconnection
 
 == Changelog ==
+
+= 1.0.0 =
+* First stable release for WordPress.org
+* Updated license from GPL-2.0 to GPL-3.0
+* Updated database requirements to MySQL 8.0+ / MariaDB 10.6+ (WordPress.org 2025 standards)
+* Added PHP 8.3+ recommendation for optimal performance and security
+* Excluded assets-wordpress-org from plugin distribution (SVN assets only)
+* Release automation with GitHub Actions
 
 = 0.99 =
 * Initial pre-release for WordPress.org submission
