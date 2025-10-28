@@ -3,13 +3,26 @@
  * Plugin Name: Nettingale Benchmark
  * Plugin URI: https://github.com/nettingale/nettingale-benchmark
  * Description: Tests real WordPress performance with actual content generation. Unlike server benchmarks, this creates real posts, comments, and images to stress-test your WordPress installation. 100% local, zero data collection.
- * Version: 0.99
+ * Version: 1.0.0
  * Author: Nettingale
  * Author URI: https://nettingale.com
- * License: GPL v2 or later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * License: GPL v3 or later
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Requires at least: 5.8
  * Requires PHP: 7.4
+ *
+ * Nettingale Benchmark is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * Nettingale Benchmark is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Nettingale Benchmark. If not, see https://www.gnu.org/licenses/gpl-3.0.html.
  *
  * Privacy & Transparency:
  * This plugin operates 100% locally on your WordPress installation.
@@ -26,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'NETTINGALE_BENCHMARK_VERSION', '0.99' );
+define( 'NETTINGALE_BENCHMARK_VERSION', '1.0.0' );
 define( 'NETTINGALE_BENCHMARK_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'NETTINGALE_BENCHMARK_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
