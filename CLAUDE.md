@@ -191,6 +191,91 @@ sudo chown -R www-data:www-data /mnt/ng/user_data/019a0264-007a-7aa0-b141-69662f
 - Validate readme.txt format
 - Check coding standards compliance
 
+## Git Workflow
+
+### Branch Naming
+Use descriptive branch names with type prefix:
+- `feature/feature-name` - New features
+- `fix/bug-description` - Bug fixes
+- `release/vX.Y.Z` - Release preparation
+- `hotfix/critical-fix` - Critical production fixes
+
+### Commit Messages
+Follow conventional commit format:
+```
+<type>: <short summary>
+
+<detailed description>
+
+- Bullet point changes
+- Another change
+- Final change
+```
+
+**Types:** feat, fix, docs, style, refactor, test, chore, release
+
+**Example:**
+```
+Release v1.0.0 - First stable release with GPL-3.0
+
+- Bump version from 0.99 to 1.0.0
+- Update license from GPL-2.0 to GPL-3.0
+- Add WordPress-recommended GPL boilerplate
+- Update database requirements (MySQL 8.0+, MariaDB 10.6+)
+```
+
+### Creating Pull Requests
+Always use `gh` CLI for consistency:
+
+```bash
+# 1. Create branch
+git checkout -b feature/new-feature
+
+# 2. Make changes and commit
+git add -A
+git commit -m "feat: Add new feature
+
+- Implemented feature X
+- Updated documentation
+- Added tests"
+
+# 3. Push branch
+git push origin feature/new-feature
+
+# 4. Create PR with gh CLI
+gh pr create --title "Add New Feature" --body "## Summary
+Brief description of what this PR does.
+
+## Changes
+- **Added**: New feature X
+- **Updated**: Documentation
+- **Fixed**: Related bug
+
+## Impact
+Describe the impact of these changes."
+```
+
+### PR Body Template
+```markdown
+## Summary
+Brief description of what this PR does.
+
+## Changes
+- **Added**: List new features
+- **Updated**: List modifications
+- **Fixed**: List bug fixes
+- **Removed**: List deletions
+
+## Impact
+Describe the impact of these changes.
+```
+
+**Important:**
+- Keep PRs focused on single feature/fix
+- Reference issues if applicable
+- Update changelog in readme.txt
+- Ensure all tests pass before creating PR
+
 ## Documentation Requirements
 
 ### Update After Changes
