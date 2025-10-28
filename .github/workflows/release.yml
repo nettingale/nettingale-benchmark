@@ -1,0 +1,140 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get version from plugin file
+        id: get-version
+        run: |
+          VERSION=$(grep "^define( 'NETTINGALE_BENCHMARK_VERSION'" nettingale-benchmark.php | sed "s/.*'\([0-9.]*\)'.*/\1/")
+          TAG="v${VERSION}"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+          echo "Version: ${VERSION}"
+          echo "Tag: ${TAG}"
+
+      - name: Check if this is a tag push
+        id: check-context
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            echo "is_tag=true" >> $GITHUB_OUTPUT
+            echo "This is a tag push"
+          else
+            echo "is_tag=false" >> $GITHUB_OUTPUT
+            echo "This is a branch push"
+          fi
+
+      - name: Check if tag exists
+        id: check-tag
+        if: steps.check-context.outputs.is_tag == 'false'
+        run: |
+          if git rev-parse "${{ steps.get-version.outputs.tag }}" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "Tag ${{ steps.get-version.outputs.tag }} already exists - skipping release"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "Tag ${{ steps.get-version.outputs.tag }} does not exist - will create"
+          fi
+
+      - name: Build ZIP
+        if: steps.check-context.outputs.is_tag == 'true' || steps.check-tag.outputs.exists == 'false'
+        run: |
+          VERSION="${{ steps.get-version.outputs.version }}"
+
+          mkdir -p /tmp/nettingale-benchmark
+
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.gitignore' \
+            --exclude='CLAUDE.md' \
+            --exclude='claude.md' \
+            --exclude='assets-wordpress-org' \
+            ./ /tmp/nettingale-benchmark/
+
+          cd /tmp
+          zip -r nettingale-benchmark-${VERSION}.zip nettingale-benchmark/
+          mv nettingale-benchmark-${VERSION}.zip ${GITHUB_WORKSPACE}/
+
+      - name: Generate release notes
+        id: notes
+        if: steps.check-context.outputs.is_tag == 'true' || steps.check-tag.outputs.exists == 'false'
+        run: |
+          VERSION="${{ steps.get-version.outputs.version }}"
+          TAG="${{ steps.get-version.outputs.tag }}"
+
+          # Extract changelog from readme.txt
+          CHANGELOG=$(awk "/^= ${VERSION} =/{flag=1; next} /^= [0-9]+\.[0-9]+ =/{flag=0} /^== [A-Z]/{flag=0} flag" readme.txt | sed '/^$/d')
+
+          # Create release notes
+          cat > release-notes.md <<EOF
+          ## Nettingale Benchmark ${VERSION}
+
+          WordPress performance benchmarking plugin that generates reproducible test datasets.
+
+          ### Changes
+
+          ${CHANGELOG}
+
+          ### Installation
+
+          1. Download \`nettingale-benchmark-${VERSION}.zip\`
+          2. Go to WordPress admin → Plugins → Add New → Upload Plugin
+          3. Upload and activate
+
+          ### Requirements
+
+          - **WordPress:** 5.8+
+          - **PHP:** 7.4+ (8.3+ recommended)
+          - **Database:** MySQL 8.0+ or MariaDB 10.6+
+          - **PHP Extensions:** GD Library
+
+          ---
+
+          **Privacy:** 100% local, zero data collection. See [PRIVACY.md](https://github.com/nettingale/nettingale-benchmark/blob/main/PRIVACY.md)
+          EOF
+
+      - name: Create tag and release
+        if: steps.check-context.outputs.is_tag == 'false' && steps.check-tag.outputs.exists == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "${{ steps.get-version.outputs.tag }}" -m "Release ${{ steps.get-version.outputs.version }}"
+          git push origin "${{ steps.get-version.outputs.tag }}"
+
+      - name: Create release from tag
+        if: steps.check-context.outputs.is_tag == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: release-notes.md
+          files: nettingale-benchmark-*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create release from branch
+        if: steps.check-context.outputs.is_tag == 'false' && steps.check-tag.outputs.exists == 'false'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.get-version.outputs.tag }}
+          body_path: release-notes.md
+          files: nettingale-benchmark-*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

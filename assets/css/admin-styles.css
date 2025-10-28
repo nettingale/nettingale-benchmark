@@ -1,0 +1,650 @@
+/**
+ * Nettingale Benchmark - Admin Styles
+ *
+ * @package Nettingale_Benchmark
+ */
+
+/* ==========================================================================
+   Main Container
+   ========================================================================== */
+
+.nettingale-benchmark-wrap {
+    margin: 20px 20px 0 0;
+}
+
+.nettingale-benchmark-wrap .description {
+    margin-bottom: 20px;
+    color: #646970;
+}
+
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+
+.nettingale-benchmark-card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.nettingale-benchmark-card h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nettingale-benchmark-card h3 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Tier Information Table
+   ========================================================================== */
+
+.nettingale-benchmark-tier-info {
+    margin: 20px 0;
+}
+
+.nettingale-benchmark-tier-info .widefat {
+    margin-top: 10px;
+}
+
+.nettingale-benchmark-tier-info .widefat th {
+    font-weight: 600;
+    background-color: #f0f0f1;
+}
+
+.nettingale-benchmark-tier-info .widefat td {
+    padding: 12px 10px;
+}
+
+.nettingale-benchmark-tier-info .widefat tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* ==========================================================================
+   Action Buttons
+   ========================================================================== */
+
+.nettingale-benchmark-actions {
+    margin: 30px 0 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.nettingale-benchmark-actions .button {
+    margin-right: 10px;
+}
+
+.nettingale-benchmark-actions .description {
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #646970;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   Progress Bar
+   ========================================================================== */
+
+#progress-container {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f0f6fc;
+    border: 1px solid #0073aa;
+    border-radius: 4px;
+}
+
+#progress-container h3 {
+    margin-top: 0;
+    color: #0073aa;
+}
+
+.nettingale-benchmark-progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.nettingale-benchmark-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0073aa 0%, #00a0d2 100%);
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+}
+
+.nettingale-benchmark-progress-text {
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#current-phase {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #0073aa;
+}
+
+/* ==========================================================================
+   Form Elements
+   ========================================================================== */
+
+.nettingale-benchmark-card .form-table {
+    margin-top: 20px;
+}
+
+.nettingale-benchmark-card .form-table th {
+    padding: 20px 10px 20px 0;
+    font-weight: 600;
+}
+
+.nettingale-benchmark-card .form-table td {
+    padding: 15px 10px;
+}
+
+.nettingale-benchmark-card select.regular-text {
+    padding: 6px 8px;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Alerts & Messages
+   ========================================================================== */
+
+.nettingale-benchmark-alert {
+    padding: 12px 16px;
+    margin: 20px 0;
+    border-left: 4px solid;
+    border-radius: 4px;
+}
+
+.nettingale-benchmark-alert-info {
+    background-color: #e5f5fa;
+    border-left-color: #00a0d2;
+    color: #006799;
+}
+
+.nettingale-benchmark-alert-warning {
+    background-color: #fcf9e8;
+    border-left-color: #dba617;
+    color: #6f5d00;
+}
+
+.nettingale-benchmark-alert-success {
+    background-color: #ecf7ed;
+    border-left-color: #46b450;
+    color: #2e7d32;
+}
+
+.nettingale-benchmark-alert-error {
+    background-color: #fef5f5;
+    border-left-color: #dc3232;
+    color: #c62828;
+}
+
+/* ==========================================================================
+   Metrics Display
+   ========================================================================== */
+
+.nettingale-benchmark-metrics {
+    margin: 20px 0;
+}
+
+.nettingale-benchmark-metrics .widefat {
+    margin-top: 10px;
+}
+
+.nettingale-benchmark-metrics .widefat th {
+    font-weight: 600;
+    background-color: #f0f0f1;
+}
+
+.nettingale-benchmark-metrics .widefat td {
+    padding: 12px 10px;
+}
+
+/* ==========================================================================
+   History Table
+   ========================================================================== */
+
+.nettingale-benchmark-history .widefat {
+    margin-top: 20px;
+}
+
+.nettingale-benchmark-history .status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.nettingale-benchmark-history .status-badge.completed {
+    background-color: #ecf7ed;
+    color: #2e7d32;
+}
+
+.nettingale-benchmark-history .status-badge.running {
+    background-color: #e5f5fa;
+    color: #006799;
+}
+
+.nettingale-benchmark-history .status-badge.failed {
+    background-color: #fef5f5;
+    color: #c62828;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media screen and (max-width: 782px) {
+    .nettingale-benchmark-wrap {
+        margin: 10px 10px 0 0;
+    }
+
+    .nettingale-benchmark-tab-content {
+        padding: 15px;
+    }
+
+    .nettingale-benchmark-card {
+        padding: 15px;
+    }
+
+    .nettingale-benchmark-actions {
+        padding: 15px;
+    }
+
+    .nettingale-benchmark-tier-info .widefat {
+        font-size: 13px;
+    }
+
+    .nettingale-benchmark-tier-info .widefat th,
+    .nettingale-benchmark-tier-info .widefat td {
+        padding: 8px 6px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nettingale-benchmark-nav-tabs .nav-tab {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .nettingale-benchmark-actions .button {
+        display: block;
+        margin-bottom: 10px;
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   Loading Spinner
+   ========================================================================== */
+
+.nettingale-benchmark-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 115, 170, 0.2);
+    border-top-color: #0073aa;
+    border-radius: 50%;
+    animation: nettingale-benchmark-spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+@keyframes nettingale-benchmark-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.nettingale-benchmark-mt-20 {
+    margin-top: 20px;
+}
+
+.nettingale-benchmark-mb-20 {
+    margin-bottom: 20px;
+}
+
+.nettingale-benchmark-hidden {
+    display: none !important;
+}
+
+.nettingale-benchmark-text-center {
+    text-align: center;
+}
+
+.nettingale-benchmark-text-muted {
+    color: #646970;
+}
+
+/* ==========================================================================
+   Button States
+   ========================================================================== */
+
+.button-large {
+    height: 36px;
+    line-height: 34px;
+    padding: 0 16px;
+    font-size: 14px;
+}
+
+.button:disabled,
+.button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Status Badges
+   ========================================================================== */
+
+.nettingale-benchmark-status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.nettingale-benchmark-status-completed {
+    background-color: #ecf7ed;
+    color: #2e7d32;
+}
+
+.nettingale-benchmark-status-running {
+    background-color: #e5f5fa;
+    color: #006799;
+}
+
+.nettingale-benchmark-status-failed {
+    background-color: #fef5f5;
+    color: #c62828;
+}
+
+/* ==========================================================================
+   Modal
+   ========================================================================== */
+
+.nettingale-benchmark-modal {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.nettingale-benchmark-modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 900px;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.nettingale-benchmark-modal-close {
+    color: #646970;
+    float: right;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.nettingale-benchmark-modal-close:hover,
+.nettingale-benchmark-modal-close:focus {
+    color: #000;
+}
+
+.nettingale-benchmark-modal-content h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nettingale-benchmark-modal-content h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0073aa;
+}
+
+.nettingale-benchmark-modal-content table {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.nettingale-benchmark-modal-content .widefat th {
+    background-color: #f0f0f1;
+}
+
+/* ==========================================================================
+   Metrics Detail Sections
+   ========================================================================== */
+
+.nettingale-benchmark-metrics-section {
+    margin-bottom: 30px;
+}
+
+.nettingale-benchmark-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.nettingale-benchmark-metric-card {
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.nettingale-benchmark-metric-label {
+    font-size: 12px;
+    color: #646970;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.nettingale-benchmark-metric-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0073aa;
+}
+
+.nettingale-benchmark-metric-unit {
+    font-size: 14px;
+    color: #646970;
+    margin-left: 5px;
+}
+
+/* ==========================================================================
+   Cleanup Modal
+   ========================================================================== */
+
+.nettingale-cleanup-modal-content {
+    max-width: 600px;
+}
+
+.nettingale-cleanup-modal-content h2 {
+    border-bottom: none;
+}
+
+.nettingale-cleanup-modal-content ul {
+    list-style-type: disc;
+}
+
+.nettingale-cleanup-modal-content ul li {
+    margin-bottom: 8px;
+    color: #2c3338;
+}
+
+#nettingale-cleanup-confirm-input {
+    font-family: monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#nettingale-cleanup-confirm-input:focus {
+    border-color: #0073aa;
+    outline: none;
+    box-shadow: 0 0 0 1px #0073aa;
+}
+
+#nettingale-cleanup-confirm:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#nettingale-cleanup-confirm:not(:disabled):hover {
+    background-color: #c62828 !important;
+    border-color: #c62828 !important;
+}
+
+.nettingale-benchmark-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+/* Modal animation */
+@keyframes nettingale-modal-fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes nettingale-modal-slidein {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.nettingale-benchmark-modal.show {
+    animation: nettingale-modal-fadein 0.2s ease;
+}
+
+.nettingale-benchmark-modal.show .nettingale-benchmark-modal-content {
+    animation: nettingale-modal-slidein 0.3s ease;
+}
+
+/* ==========================================================================
+   PHP Environment Status Indicators
+   ========================================================================== */
+
+/* Status row backgrounds */
+tr.status-ok {
+    background-color: #f0f9ff !important;
+}
+
+tr.status-warning {
+    background-color: #fffbf0 !important;
+}
+
+tr.status-critical {
+    background-color: #fff5f5 !important;
+}
+
+tr.status-info {
+    background-color: #f9f9f9 !important;
+}
+
+/* Status badges */
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-badge.status-ok {
+    background-color: #ecf7ed;
+    color: #2e7d32;
+    border: 1px solid #46b450;
+}
+
+.status-badge.status-warning {
+    background-color: #fcf9e8;
+    color: #6f5d00;
+    border: 1px solid #dba617;
+}
+
+.status-badge.status-critical {
+    background-color: #fef5f5;
+    color: #c62828;
+    border: 1px solid #dc3232;
+}
+
+.status-badge.status-info {
+    background-color: #f0f0f1;
+    color: #2c3338;
+    border: 1px solid #8c8f94;
+}
+
+/* PHP Status table specific styling */
+#php-status-container table {
+    margin-top: 15px;
+}
+
+#php-status-container .widefat th {
+    background-color: #f0f0f1;
+    font-weight: 600;
+    padding: 12px;
+}
+
+#php-status-container .widefat td {
+    padding: 12px;
+    vertical-align: middle;
+}
+
+#php-status-container .widefat tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+#php-status-container .widefat tbody tr:hover {
+    opacity: 0.9;
+}
